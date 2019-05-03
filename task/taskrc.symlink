@@ -1,0 +1,29 @@
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Config options can be found: https://linux.die.net/man/5/taskrc
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Color theme
+include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-violets-256.theme
+
+
+#
+report.startup.columns=id,project.parent,description.truncated,urgency
+report.startup.description=A reminder of task list on terminal open
+report.startup.filter=status:pending -BLOCKED
+report.startup.sort=project+/,urgency-,description+
+
+confirmation=no
+nag=Well that's not very helpful...
+weekstart=Monday

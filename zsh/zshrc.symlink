@@ -1,0 +1,55 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/chanel.matlock/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# https://github.com/caiogondim/bullet-train.zsh
+ZSH_THEME="bullet-train"
+
+#####################
+# BULLETTRAIN THEME #
+#####################
+
+BULLETTRAIN_PROMPT_ORDER=(
+	time
+	dir
+	git
+	status
+)
+
+BULLETTRAIN_PROMPT_CHAR="\uF054"
+
+BULLETTRAIN_STATUS_ERROR_BG=white
+
+BULLETTRAIN_STATUS_FG=red
+
+BULLETTRAIN_RUBY_PREFIX="\uE21E"
+
+ZSH_THEME_GIT_PROMPT_PREFIX="\uE725"
+
+SEGMENT_SEPARATOR="\uE0C4"
+
+
+# Homebrew completion
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+source $ZSH/oh-my-zsh.sh
+
+# Use sublime for all text edition needs
+PATH=$PATH:~/bin/
+export EDITOR="sublime -w -n"
+
+# Ruby
+eval "$(rbenv init -)"
+
+# Python
+export PATH=$HOME/Library/Python/3.6/bin:$PATH
+
+# Done!
+echo "ZSH successfully loaded"

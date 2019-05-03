@@ -1,0 +1,14 @@
+# Apps/Libraries/Programs
+
+Caffiene
+Spectacle
+Dropbox
+Spotify
+Sublime
+1Password
+iTerm
+Slack
+Visual Studio Code
+Brew
+Pip
+OMZSH

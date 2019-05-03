@@ -1,0 +1,30 @@
+[user]
+	name = Chanel Matlock
+    email = chanel@violetspark.net
+    useConfigOnly = true
+    logallrefupdates=true
+[core]
+    # Defines what file has a list of git ignore rules to apply ALWAYS. This
+    # file should have things that are not local for a project, but will happen
+    # based on the machine / tools you use. Example: .DS_Store files
+    excludesfile = ~/.gitignore_global
+[color]
+    status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    ui = auto
+# The aliases act like git commands when used on the command line.
+# Rather than executing `git diff --staged`, the _staged_ alias allows the
+# shorter `git staged` for the same behavior.
+[alias]
+	st = status
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lols = log --graph --decorate --pretty=oneline --abbrev-commit --simplify-by-decoration
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lolas = log --graph --decorate --pretty=oneline --abbrev-commit --all --simplify-by-decoration
+    staged = diff --staged
+    forkup = fetch --prune --tags --all
+[push]
+    # This is the safest setting for the push defaults.
+    default = simple
