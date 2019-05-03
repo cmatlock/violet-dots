@@ -4,8 +4,10 @@
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
+# To uninstall all homebrew packages brew uninstall --force $(brew list)
 
 # Check for Homebrew
+echo "  Check for Homebrew"
 if test ! $(which brew)
 then
   echo "  x You should probably install Homebrew first:"
@@ -14,6 +16,7 @@ then
 fi
 
 define(){ IFS='\n' read -r -d '' ${1} || true; }
+echo "  Gathering recipes..."
 define RECIPES_TO_INSTALL <<-'EOF'
 	cowsay
 	git
@@ -25,7 +28,6 @@ define RECIPES_TO_INSTALL <<-'EOF'
 	fortune
 	lolcat
 	readline
-	task
 	watch
 EOF
 RECIPES_TO_INSTALL=$(echo $RECIPES_TO_INSTALL | tr '\n' ' ')

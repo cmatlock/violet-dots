@@ -48,6 +48,9 @@ export EDITOR="sublime -w -n"
 # Ruby
 eval "$(rbenv init -)"
 
+# TheFuck
+eval $(thefuck --alias)
+
 # Python
 export PATH=$HOME/Library/Python/3.6/bin:$PATH
 

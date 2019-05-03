@@ -110,9 +110,17 @@ install_dotfiles () {
 }
 
 function install_homebrew () {
-  info "bootstrapping homebrew\n"
+  info "installing xcode\n"
 
-  xcode-select --install
+  # XCODE="xcode-select -p 1>/dev/null;echo $\?"
+  XCODE="/usr/bin/xcode-select"
+  if [ -e "$XCODE" ]; then
+    success "xcode-select already installed"
+  else
+    xcode-select --install
+  fi
+
+  info "bootstrapping homebrew\n"
 
   BREW="/usr/local/bin/brew"
   if [ -e "$BREW" ]; then
@@ -132,6 +140,7 @@ function install_homebrew () {
   MTR_PATH=$(which mtr)
   sudo chown root:wheel $MTR_PATH
   sudo chmod u+s $MTR_PATH
+  success "installed brew packages"
 }
 
 info 'creating directories\n'
