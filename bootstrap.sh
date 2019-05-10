@@ -112,7 +112,6 @@ install_dotfiles () {
 function install_homebrew () {
   info "installing xcode\n"
 
-  # XCODE="xcode-select -p 1>/dev/null;echo $\?"
   XCODE="/usr/bin/xcode-select"
   if [ -e "$XCODE" ]; then
     success "xcode-select already installed"
@@ -126,7 +125,7 @@ function install_homebrew () {
   if [ -e "$BREW" ]; then
     success "skipped homebrew install; already present"
   elif [ `command -v ruby` ]; then
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)" \
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
       || fail "brew install failed"
     $BREW doctor || fail "The Doctor needs a bit of help..."
   else
@@ -137,14 +136,17 @@ function install_homebrew () {
   $BREW update > /dev/null
   homebrew/install.sh >> $HOME/tmp/brew_package_install.log 2>&1 \
     || fail "installing brew packages"
+  
+  success "installed brew packages"
+
   MTR_PATH=$(which mtr)
   sudo chown root:wheel $MTR_PATH
   sudo chmod u+s $MTR_PATH
-  success "installed brew packages"
+  success "mtr handled"
 }
 
 info 'creating directories\n'
-for dirname in repositories tmp .config ; do
+for dirname in repositories bin tmp .config ; do
 	if [[ ! -e ~/$dirname ]] ; then
 		mkdir ~/$dirname && success "created ~/$dirname" || fail "could not create ~/$dirname"
 	fi
@@ -163,6 +165,14 @@ if [ "$(uname -s)" == "Darwin" ]; then
   $DOTFILES_ROOT/osx/set-defaults.sh
 
   install_homebrew
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
+      || fail "oh-my-zsh install failed"
+  link_files "$DOTFILES_ROOT/zsh/themes/bullet-train.zsh-theme" "$HOME/.oh-my-zsh/themes/bullet-train.zsh-theme"
+  # pip3 install powerline-status
+  # brew tap homebrew/cask-fonts
+  # brew cask install font-monofur-nerd-font-mono font-firacode-nerd-font
+
 
   success "Completed with OS X configuration"
 fi

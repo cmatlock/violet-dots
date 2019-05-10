@@ -29,6 +29,8 @@ define RECIPES_TO_INSTALL <<-'EOF'
 	lolcat
 	readline
 	watch
+	zsh
+	zsh-completions
 EOF
 RECIPES_TO_INSTALL=$(echo $RECIPES_TO_INSTALL | tr '\n' ' ')
 
@@ -38,4 +40,5 @@ mkdir -p ~/.rbenv/cache
 # Install homebrew packages
 brew install $RECIPES_TO_INSTALL
 
+echo " ---- Installation successful!"
 exit $?

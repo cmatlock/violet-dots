@@ -1,14 +1,16 @@
 # Apps/Libraries/Programs
 
-Caffiene
-Spectacle
+Caffeine (http://lightheadsw.com/caffeine/)
+Spectacle (https://www.spectacleapp.com/)
+Slack (https://slack.com/downloads/mac)
+Sublime (https://www.sublimetext.com/3)
+iTerm (https://www.iterm2.com/downloads.html)
+Spotify (https://www.spotify.com/us/download/mac/)
 Dropbox
-Spotify
-Sublime
-1Password
-iTerm
-Slack
+1Password (https://1password.com/downloads/mac/)
 Visual Studio Code
-Brew
 Pip
-OMZSH
+
+# Chrome Extensions
+1Password
+UBlock 

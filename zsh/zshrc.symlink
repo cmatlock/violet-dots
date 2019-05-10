@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/chanel.matlock/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -44,6 +44,9 @@ source $ZSH/oh-my-zsh.sh
 # Use sublime for all text edition needs
 PATH=$PATH:~/bin/
 export EDITOR="sublime -w -n"
+
+# Once Sublime is installed
+# ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 # Ruby
 eval "$(rbenv init -)"
